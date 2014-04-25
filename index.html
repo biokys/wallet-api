@@ -31,13 +31,21 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="obtaining-a-token" class="anchor" href="#obtaining-a-token"><span class="octicon octicon-link"></span></a>Obtaining a token</h3>
+        <h2>
+<a name="basic-info" class="anchor" href="#basic-info"><span class="octicon octicon-link"></span></a>Basic info</h2>
+
+<p>All timestamps are returned in ISO 8601 format:</p>
+
+<pre><code>YYYY-MM-DDTHH:MM:SSZ
+</code></pre>
+
+<h2>
+<a name="obtaining-a-token" class="anchor" href="#obtaining-a-token"><span class="octicon octicon-link"></span></a>Obtaining a token</h2>
 
 <p>Sign-in to <a href="http://walletapp.net">Wallet web app</a>, go to User profile and Auth token section.</p>
 
-<h3>
-<a name="authorization" class="anchor" href="#authorization"><span class="octicon octicon-link"></span></a>Authorization</h3>
+<h2>
+<a name="authorization" class="anchor" href="#authorization"><span class="octicon octicon-link"></span></a>Authorization</h2>
 
 <p>There are two ways how to handle authorization.</p>
 
@@ -53,12 +61,11 @@
 </code></pre>
 </blockquote>
 
-<hr><h3>
-<a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h3>
+<h2>
+<a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h2>
 
-<blockquote>
-<p>Retrieves users</p>
-</blockquote>
+<h3>
+<a name="retrieves-users" class="anchor" href="#retrieves-users"><span class="octicon octicon-link"></span></a>Retrieves users</h3>
 
 <p><strong>Request</strong></p>
 
@@ -77,12 +84,11 @@
 <span class="p">}</span>
 </pre></div>
 
-<hr><h3>
-<a name="accounts" class="anchor" href="#accounts"><span class="octicon octicon-link"></span></a>Accounts</h3>
+<h2>
+<a name="accounts" class="anchor" href="#accounts"><span class="octicon octicon-link"></span></a>Accounts</h2>
 
-<blockquote>
-<p>Retrieves all accounts</p>
-</blockquote>
+<h3>
+<a name="retrieves-all-accounts" class="anchor" href="#retrieves-all-accounts"><span class="octicon octicon-link"></span></a>Retrieves all accounts</h3>
 
 <p><strong>Request</strong></p>
 
@@ -101,46 +107,139 @@
 <span class="p">}</span>
 </pre></div>
 
-<blockquote>
-<p>Save/create new account</p>
-</blockquote>
+<h3>
+<a name="savecreate-new-account" class="anchor" href="#savecreate-new-account"><span class="octicon octicon-link"></span></a>Save/create new account</h3>
 
 <p><strong>Request</strong></p>
 
 <pre><code>POST api/v1/user/:user_id/account/:account_id
 </code></pre>
 
-<blockquote>
-<p>Delete an account</p>
-</blockquote>
+<h3>
+<a name="delete-an-account" class="anchor" href="#delete-an-account"><span class="octicon octicon-link"></span></a>Delete an account</h3>
 
 <p><strong>Request</strong></p>
 
 <pre><code>DELETE api/v1/user/:user_id/account/:account_id
 </code></pre>
 
-<hr><h3>
-<a name="categories" class="anchor" href="#categories"><span class="octicon octicon-link"></span></a>Categories</h3>
+<hr><h2>
+<a name="categories" class="anchor" href="#categories"><span class="octicon octicon-link"></span></a>Categories</h2>
 
-<p>Retrieves all user's categories</p>
+<h3>
+<a name="retrieves-all-users-categories" class="anchor" href="#retrieves-all-users-categories"><span class="octicon octicon-link"></span></a>Retrieves all user's categories</h3>
 
 <pre><code>GET /api/v1/user/:user_id/categories
 </code></pre>
 
-<hr><h3>
-<a name="currencies" class="anchor" href="#currencies"><span class="octicon octicon-link"></span></a>Currencies</h3>
+<h2>
+<a name="currencies" class="anchor" href="#currencies"><span class="octicon octicon-link"></span></a>Currencies</h2>
 
-<p>Retrieves all user's currencies</p>
+<h3>
+<a name="retrieves-all-users-currencies" class="anchor" href="#retrieves-all-users-currencies"><span class="octicon octicon-link"></span></a>Retrieves all user's currencies</h3>
 
 <pre><code>GET /api/v1/user/:user_id/currencies
 </code></pre>
 
-<hr><h3>
-<a name="records" class="anchor" href="#records"><span class="octicon octicon-link"></span></a>Records</h3>
+<h2>
+<a name="records" class="anchor" href="#records"><span class="octicon octicon-link"></span></a>Records</h2>
 
-<p>Retrieves all records in particular account</p>
+<h3>
+<a name="retrieves-all-records-in-particular-account" class="anchor" href="#retrieves-all-records-in-particular-account"><span class="octicon octicon-link"></span></a>Retrieves all records in particular account</h3>
 
 <pre><code>GET /api/v1/user/:user_id/account/:account_id/records
+</code></pre>
+
+<h3>
+<a name="search" class="anchor" href="#search"><span class="octicon octicon-link"></span></a>Search</h3>
+
+<pre><code>GET api/v1/search/records?q=query&amp;sort=sorting_atribute&amp;order=[asc|desc]
+</code></pre>
+
+<blockquote>
+<p>Query table</p>
+</blockquote>
+
+<table>
+<thead><tr>
+<th>Keyword</th>
+<th>Possible values</th>
+<th>Operators</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>account</td>
+<td>account_id</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>category</td>
+<td>category_id</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td>currency_id</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>payment_type</td>
+<td>cash, debit_card, credit_card, transfer, voucher, mobile_payment, web_payment</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>positive floating number</td>
+<td>&lt;, &gt;, &lt;=, &gt;=</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>income, expense</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr>
+<td>record_date</td>
+<td>unix timestamp in UTC</td>
+<td>&lt;, &gt;, &lt;=, &gt;=</td>
+<td></td>
+</tr>
+<tr>
+<td>note</td>
+<td></td>
+<td>%</td>
+<td></td>
+</tr>
+<tr>
+<td>warranty</td>
+<td>positive integer</td>
+<td>&lt;, &gt;, &lt;=, &gt;=</td>
+<td></td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>real number</td>
+<td>&lt;, &gt;, &lt;=, &gt;=</td>
+<td></td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>real number</td>
+<td>&lt;, &gt;, &lt;=, &gt;=</td>
+<td></td>
+</tr>
+</tbody>
+</table><blockquote>
+<p>Following example request searches for record with amount between 2000 exclusive and 10000 inclusive, taking only incomes, payment type is credit card and contains note starting by word Cars</p>
+</blockquote>
+
+<pre><code>http://walletapp.net/api/v1/search/records?page=1&amp;per_page=10&amp;q=payment_type:credit_card+amount:&gt;2000+amount:&lt;=10000+type:income+note:Cars
 </code></pre>
       </section>
     </div>
