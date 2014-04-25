@@ -125,16 +125,16 @@ X-RateLimit-Limit: 100
 <pre><code>curl http://wallet-test.herokuapp.com/api/v1/users?auth=TOKEN
 </code></pre>
 
-<p>When the authorization fail, you will get following http code</p>
-
-<pre><code>HTTP/1.1 403 Forbidden
-</code></pre>
-
 <p>By using BASIC authentication (user = auth, pass = TOKEN).</p>
 
 <pre><code>curl -u auth:TOKEN http://wallet-test.herokuapp.com/api/v1/users
 </code></pre>
 </blockquote>
+
+<p>When the authorization fail, you will get following http code</p>
+
+<pre><code>HTTP/1.1 403 Forbidden
+</code></pre>
 
 <h2>
 <a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h2>
