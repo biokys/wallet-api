@@ -39,16 +39,21 @@
 <h3>
 <a name="authorization" class="anchor" href="#authorization"><span class="octicon octicon-link"></span></a>Authorization</h3>
 
-<p>Every API call must contain url param <em>auth</em></p>
+<p>There are two ways how to handle authorization.</p>
 
-<p>Example</p>
+<blockquote>
+<p>Pass auth token as url param <em>auth</em>.</p>
 
-<pre><code>GET /api/v1/users?auth=b5agekVlZhN64FHocc2ozdClGRDnXmDy
+<pre><code>curl http://walletapp.net/api/v1/users?auth=TOKEN
 </code></pre>
 
-<p>Auth token can be obtained in profile settings.</p>
+<p>By using BASIC authentication (user = auth, pass = TOKEN).</p>
 
-<h3>
+<pre><code>curl -u auth:TOKEN http://walletapp.net/api/v1/users
+</code></pre>
+</blockquote>
+
+<hr><h3>
 <a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h3>
 
 <p>Retrieves users</p>
@@ -56,7 +61,7 @@
 <pre><code>GET /api/v1/users
 </code></pre>
 
-<h3>
+<hr><h3>
 <a name="accounts" class="anchor" href="#accounts"><span class="octicon octicon-link"></span></a>Accounts</h3>
 
 <p>Retrieves all accounts</p>
@@ -64,15 +69,25 @@
 <pre><code>GET /api/v1/user/:user_id/accounts
 </code></pre>
 
-<h3>
+<p>Save/create new account</p>
+
+<pre><code>POST api/v1/user/:user_id/account/:account_id
+</code></pre>
+
+<p>Delete an account</p>
+
+<pre><code>DELETE api/v1/user/:user_id/account/:account_id
+</code></pre>
+
+<hr><h3>
 <a name="categories" class="anchor" href="#categories"><span class="octicon octicon-link"></span></a>Categories</h3>
 
-<p>Retrieves all users categories</p>
+<p>Retrieves all user's categories</p>
 
 <pre><code>GET /api/v1/user/:user_id/categories
 </code></pre>
 
-<h3>
+<hr><h3>
 <a name="currencies" class="anchor" href="#currencies"><span class="octicon octicon-link"></span></a>Currencies</h3>
 
 <p>Retrieves all user's currencies</p>
@@ -80,7 +95,7 @@
 <pre><code>GET /api/v1/user/:user_id/currencies
 </code></pre>
 
-<h3>
+<hr><h3>
 <a name="records" class="anchor" href="#records"><span class="octicon octicon-link"></span></a>Records</h3>
 
 <p>Retrieves all records in particular account</p>
