@@ -97,7 +97,20 @@ X-RateLimit-Limit: 100
 </table><h2>
 <a name="obtaining-a-token" class="anchor" href="#obtaining-a-token"><span class="octicon octicon-link"></span></a>Obtaining a token</h2>
 
-<p>Sign-in to <a href="http://walletapp.net">Wallet web app</a>, go to User profile and Auth token section.</p>
+<p>Sign-in to <a href="http://wallet-test.herokuapp.com">Wallet TEST web app</a>, <del>NOT WORKING go to User profile and Auth token section</del>.  </p>
+
+<blockquote>
+<p>Admin interface for generating of tokens doesn't exist yet.</p>
+</blockquote>
+
+<h3>
+<a name="manual-token-manipulation-have-to-be-signed-in" class="anchor" href="#manual-token-manipulation-have-to-be-signed-in"><span class="octicon octicon-link"></span></a>Manual token manipulation (have to be signed-in):</h3>
+
+<p>Get token <code>http://wallet-test.herokuapp.com/auth-token</code></p>
+
+<p>Create token <code>http://wallet-test.herokuapp.com/auth-token/create</code></p>
+
+<p>Delete token <code>http://wallet-test.herokuapp.com/auth-token/delete</code></p>
 
 <p><strong>Caution! Keep your token in secret. Everyone having your token could possibly change your data!</strong></p>
 
@@ -109,7 +122,7 @@ X-RateLimit-Limit: 100
 <blockquote>
 <p>Pass auth token as url param <strong>auth</strong>.</p>
 
-<pre><code>curl http://walletapp.net/api/v1/users?auth=TOKEN
+<pre><code>curl http://wallet-test.herokuapp.com/api/v1/users?auth=TOKEN
 </code></pre>
 
 <p>When the authorization fail, you will get following http code</p>
@@ -119,7 +132,7 @@ X-RateLimit-Limit: 100
 
 <p>By using BASIC authentication (user = auth, pass = TOKEN).</p>
 
-<pre><code>curl -u auth:TOKEN http://walletapp.net/api/v1/users
+<pre><code>curl -u auth:TOKENhttp://wallet-test.herokuapp.com/api/v1/users
 </code></pre>
 </blockquote>
 
@@ -451,7 +464,7 @@ X-RateLimit-Limit: 100
 </table><blockquote>
 <p>Following example request searches for record with amount between 2000 exclusive and 10000 inclusive, taking only incomes, payment type is credit card and contains note starting by word Cars</p>
 
-<pre><code>http://walletapp.net/api/v1/search/records?page=1&amp;per_page=10&amp;q=payment_type:credit_card+amount:&gt;2000+amount:&lt;=10000+type:income+note:Cars
+<pre><code>http://wallet-test.herokuapp.com/api/v1/search/records?page=1&amp;per_page=10&amp;q=payment_type:credit_card+amount:&gt;2000+amount:&lt;=10000+type:income+note:Cars
 </code></pre>
 </blockquote>
       </section>
