@@ -261,6 +261,58 @@ X-RateLimit-Limit: 100
 </pre></div>
 
 <h3>
+<a name="retrieves-particular-record-by-record-id" class="anchor" href="#retrieves-particular-record-by-record-id"><span class="octicon octicon-link"></span></a>Retrieves particular record by record id</h3>
+
+<pre><code>GET /api/v1/record/:record_id
+</code></pre>
+
+<p><strong>Reponse</strong></p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"account"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"user_id"</span><span class="p">:</span> <span class="s2">"7e7e7387-fda1-4594-8dd0-9f1726113c45"</span><span class="p">,</span>
+        <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"My personal account"</span><span class="p">,</span>
+        <span class="nt">"gps"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">"init_amount"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">"order"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"a48e9fca-1a21-48ae-8664-54f54db1f8a0"</span>
+    <span class="p">},</span>
+    <span class="nt">"category"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"user_id"</span><span class="p">:</span> <span class="s2">"7e7e7387-fda1-4594-8dd0-9f1726113c45"</span><span class="p">,</span>
+        <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Food"</span><span class="p">,</span>
+        <span class="nt">"color"</span><span class="p">:</span> <span class="s2">"#FF6B6B"</span><span class="p">,</span>
+        <span class="nt">"icon_path"</span><span class="p">:</span> <span class="s2">"ic_cat_0301_eating_out.png"</span><span class="p">,</span>
+        <span class="nt">"icon_id"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+        <span class="nt">"is_system_category"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">"default_type"</span><span class="p">:</span> <span class="s2">"expense"</span><span class="p">,</span>
+        <span class="nt">"order"</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+        <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"a43e0592-bb0e-4fb1-b9d4-4899978562bd"</span>
+    <span class="p">},</span>
+    <span class="nt">"currency"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"user_id"</span><span class="p">:</span> <span class="s2">"7e7e7387-fda1-4594-8dd0-9f1726113c45"</span><span class="p">,</span>
+        <span class="nt">"rate"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">"is_referential"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Czech Republic Koruna"</span><span class="p">,</span>
+        <span class="nt">"code"</span><span class="p">:</span> <span class="s2">"CZK"</span><span class="p">,</span>
+        <span class="nt">"symbol"</span><span class="p">:</span> <span class="s2">"CZK"</span><span class="p">,</span>
+        <span class="nt">"order"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"c8e54a22-81f9-4034-acd3-59003f004a29"</span>
+    <span class="p">},</span>
+    <span class="nt">"payment_type"</span><span class="p">:</span> <span class="s2">"cash"</span><span class="p">,</span>
+    <span class="nt">"amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">"referential_amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">"record_type"</span><span class="p">:</span> <span class="s2">"expense"</span><span class="p">,</span>
+    <span class="nt">"record_date"</span><span class="p">:</span> <span class="s2">"2014-01-26T19:47:06.203Z"</span><span class="p">,</span>
+    <span class="nt">"note"</span><span class="p">:</span> <span class="s2">"My new car"</span><span class="p">,</span>
+    <span class="nt">"warranty_in_months"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">"gps_latitude"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">"gps_longitude"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">"gps_accuracy"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"00ef6be1-2652-43d1-947a-4a8b74460902"</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
 <a name="search" class="anchor" href="#search"><span class="octicon octicon-link"></span></a>Search</h3>
 
 <pre><code>GET api/v1/search/records?q=query&amp;sort=sorting_attribute&amp;order=[asc|desc]&amp;page=number&amp;per_page=number
