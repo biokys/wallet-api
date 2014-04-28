@@ -467,12 +467,14 @@ X-RateLimit-Limit: 100
 </blockquote>
 
 <h3>
-<a name="create-new-record" class="anchor" href="#create-new-record"><span class="octicon octicon-link"></span></a>Create new record</h3>
+<a name="create-new-records" class="anchor" href="#create-new-records"><span class="octicon octicon-link"></span></a>Create new record(s)</h3>
+
+<p>Create or update one or more records. When record id is specified, record is updated, otherwise is created. Data has to be sent inside POST request in JSON format specified by table below. </p>
 
 <pre><code>POST /api/v1/user/:user_id/records
 </code></pre>
 
-<p><strong>Input</strong></p>
+<p><strong>Input (json)</strong></p>
 
 <table>
 <thead><tr>
@@ -481,6 +483,11 @@ X-RateLimit-Limit: 100
 <th>Description</th>
 </tr></thead>
 <tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>false</td>
+<td>Record id (when not specified, new record is created)</td>
+</tr>
 <tr>
 <td>
 <strong>account_id</strong> or <strong>account_name</strong>
