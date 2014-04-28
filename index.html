@@ -490,22 +490,19 @@ X-RateLimit-Limit: 100
 </tr>
 <tr>
 <td>
-<strong>account_id</strong> or <strong>account_name</strong>
-</td>
+<strong>account_id</strong> or <strong>account_name</strong>*</td>
 <td>true</td>
 <td>the account</td>
 </tr>
 <tr>
 <td>
-<strong>category_id</strong> or <strong>category_name</strong>
-</td>
+<strong>category_id</strong> or <strong>category_name</strong>*</td>
 <td>true</td>
 <td>the category</td>
 </tr>
 <tr>
 <td>
-<strong>currency_id</strong> or <strong>currency_code</strong>
-</td>
+<strong>currency_id</strong> or <strong>currency_code</strong>*</td>
 <td>true</td>
 <td>the currency</td>
 </tr>
@@ -555,7 +552,9 @@ X-RateLimit-Limit: 100
 <td>the accuracy in meters</td>
 </tr>
 </tbody>
-</table><p><strong>Example</strong></p>
+</table><p>* <em>object of this name must exist, otherwise error will returned</em></p>
+
+<p><strong>Example</strong></p>
 
 <div class="highlight highlight-json"><pre><span class="p">[{</span>
     <span class="nt">"payment_type"</span><span class="p">:</span><span class="s2">"credit_card"</span><span class="p">,</span> 
