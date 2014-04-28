@@ -269,7 +269,6 @@ X-RateLimit-Limit: 100
     <span class="nt">"currency_id"</span><span class="p">:</span> <span class="s2">"c8e54a22-81f9-4034-acd3-59003f004a29"</span><span class="p">,</span>
     <span class="nt">"payment_type"</span><span class="p">:</span> <span class="s2">"cash"</span><span class="p">,</span>
     <span class="nt">"amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">"referential_amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">"record_type"</span><span class="p">:</span> <span class="s2">"expense"</span><span class="p">,</span>
     <span class="nt">"record_date"</span><span class="p">:</span> <span class="s2">"2014-01-26T19:47:06.203Z"</span><span class="p">,</span>
     <span class="nt">"note"</span><span class="p">:</span> <span class="s2">"Holiday in US, ~~hid:b42ef64b-8c91-48e8-af0f-a0db85a2e5b1"</span><span class="p">,</span>
@@ -329,7 +328,6 @@ X-RateLimit-Limit: 100
     <span class="p">},</span>
     <span class="nt">"payment_type"</span><span class="p">:</span> <span class="s2">"cash"</span><span class="p">,</span>
     <span class="nt">"amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">"referential_amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">"record_type"</span><span class="p">:</span> <span class="s2">"expense"</span><span class="p">,</span>
     <span class="nt">"record_date"</span><span class="p">:</span> <span class="s2">"2014-01-26T19:47:06.203Z"</span><span class="p">,</span>
     <span class="nt">"note"</span><span class="p">:</span> <span class="s2">"My new car"</span><span class="p">,</span>
@@ -466,6 +464,153 @@ X-RateLimit-Limit: 100
 
 <pre><code>http://wallet-test.herokuapp.com/api/v1/search/records?page=1&amp;per_page=10&amp;q=payment_type:credit_card+amount:&gt;2000+amount:&lt;=10000+type:income+note:Cars
 </code></pre>
+</blockquote>
+
+<h3>
+<a name="create-new-record" class="anchor" href="#create-new-record"><span class="octicon octicon-link"></span></a>Create new record</h3>
+
+<pre><code>POST /api/v1/user/:user_id/records
+</code></pre>
+
+<p><strong>Input</strong></p>
+
+<table>
+<thead><tr>
+<th>Property</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<strong>account_id</strong> or <strong>account_name</strong>
+</td>
+<td>true</td>
+<td>the account</td>
+</tr>
+<tr>
+<td>
+<strong>category_id</strong> or <strong>category_name</strong>
+</td>
+<td>true</td>
+<td>the category</td>
+</tr>
+<tr>
+<td>
+<strong>currency_id</strong> or <strong>currency_code</strong>
+</td>
+<td>true</td>
+<td>the currency</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td>true</td>
+<td>must be bigger than 0</td>
+</tr>
+<tr>
+<td><strong>record_type</strong></td>
+<td>true</td>
+<td>possible values: income, expense</td>
+</tr>
+<tr>
+<td><strong>payment_type</strong></td>
+<td>true</td>
+<td>possible values: cash, debit_card, credit_card, transfer, voucher, mobile_payment, web_payment</td>
+</tr>
+<tr>
+<td><strong>record_date</strong></td>
+<td>true</td>
+<td>ex.: 2014-04-21T15:10:23Z</td>
+</tr>
+<tr>
+<td><strong>note</strong></td>
+<td>false</td>
+<td>record note</td>
+</tr>
+<tr>
+<td><strong>warranty_in_month</strong></td>
+<td>false</td>
+<td>the warranty in month.</td>
+</tr>
+<tr>
+<td><strong>gps_latitude</strong></td>
+<td>false</td>
+<td>the gps latitude</td>
+</tr>
+<tr>
+<td><strong>gps_longitude</strong></td>
+<td>false</td>
+<td>the gps longitude</td>
+</tr>
+<tr>
+<td><strong>gps_accuracy</strong></td>
+<td>false</td>
+<td>the accuracy in meters</td>
+</tr>
+</tbody>
+</table><p><strong>Example</strong></p>
+
+<div class="highlight highlight-json"><pre><span class="p">[{</span>
+    <span class="nt">"payment_type"</span><span class="p">:</span><span class="s2">"credit_card"</span><span class="p">,</span> 
+    <span class="nt">"record_type"</span><span class="p">:</span><span class="s2">"income"</span><span class="p">,</span> 
+    <span class="nt">"record_date"</span><span class="p">:</span><span class="s2">"2014-04-20T20:10:15Z"</span><span class="p">,</span> 
+    <span class="nt">"amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> 
+    <span class="nt">"currency_code"</span><span class="p">:</span><span class="s2">"CZK"</span><span class="p">,</span> 
+    <span class="nt">"account_name"</span><span class="p">:</span><span class="s2">"My personal account"</span><span class="p">,</span> 
+    <span class="nt">"category_name"</span><span class="p">:</span><span class="s2">"Car"</span>
+<span class="p">}]</span>
+</pre></div>
+
+<p><strong>Response</strong></p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"error_objects"</span><span class="p">:[{</span>
+        <span class="nt">"record"</span><span class="p">:{</span>
+            <span class="err">...received_record_object...</span>
+        <span class="p">},</span>
+        <span class="nt">"failed_property"</span><span class="p">:</span><span class="s2">"&lt;name_of_property&gt;"</span><span class="p">,</span>
+        <span class="nt">"description"</span><span class="p">:</span><span class="s2">"&lt;problem_description&gt;"</span>
+    <span class="p">}],</span>
+    <span class="nt">"created_object_ids"</span><span class="p">:[</span>
+        <span class="s2">"&lt;id_1&gt;"</span><span class="p">,</span>
+        <span class="s2">"&lt;id_2&gt;"</span><span class="p">,</span>
+        <span class="s2">"&lt;id_3&gt;"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong>Example - successful response</strong></p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"error_objects"</span><span class="p">:[],</span>
+    <span class="nt">"created_object_ids"</span><span class="p">:[</span>
+        <span class="s2">"f25538f2-7d49-4e0c-9bfd-dd67c90be434"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong>Example - failed response (record_type wasn't set)</strong></p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"error_objects"</span><span class="p">:[{</span>
+        <span class="nt">"record"</span><span class="p">:{</span>
+            <span class="nt">"account_name"</span><span class="p">:</span><span class="s2">"My personal account"</span><span class="p">,</span>
+            <span class="nt">"category_name"</span><span class="p">:</span><span class="s2">"Car"</span><span class="p">,</span>
+            <span class="nt">"currency_code"</span><span class="p">:</span><span class="s2">"CZK"</span><span class="p">,</span>
+            <span class="nt">"amount"</span><span class="p">:</span><span class="mf">100.0</span><span class="p">,</span>
+            <span class="nt">"record_date"</span><span class="p">:</span><span class="s2">"2014-04-20T20:10:15Z"</span><span class="p">,</span>
+            <span class="nt">"warranty_in_months"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="nt">"failed_property"</span><span class="p">:</span><span class="s2">"record_type"</span>
+    <span class="p">}],</span>
+    <span class="nt">"created_object_ids"</span><span class="p">:[]</span>
+<span class="p">}</span>
+</pre></div>
+
+<blockquote>
+<p>When everything is ok, you will receive result object with empty error_objects array and non-empty array created_object_ids filled with ids of created objects in the same order, the objects where received.</p>
+
+<p>There is a limit 10.000 objects per minute. </p>
 </blockquote>
       </section>
     </div>
