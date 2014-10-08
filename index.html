@@ -249,6 +249,26 @@ X-RateLimit-Limit: 100
 </pre></div>
 
 <h2>
+<a name="hashtags" class="anchor" href="#hashtags"><span class="octicon octicon-link"></span></a>Hashtags</h2>
+
+<h3>
+<a name="retrieve-all-users-hashtags-or-single-hashtag" class="anchor" href="#retrieve-all-users-hashtags-or-single-hashtag"><span class="octicon octicon-link"></span></a>Retrieve all user's hashtags or single hashtag</h3>
+
+<pre><code>GET /api/v1/user/:user_id/hashtags
+</code></pre>
+
+<pre><code>GET /api/v1/user/:user_id/hashtag/{hashtag_id}
+</code></pre>
+
+<p><strong>Response</strong></p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"name of hashtag"</span><span class="p">,</span>
+    <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"867f9c29-7b6e-4b1c-8d39-656cd5befa08"</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
 <a name="records" class="anchor" href="#records"><span class="octicon octicon-link"></span></a>Records</h2>
 
 <h3>
